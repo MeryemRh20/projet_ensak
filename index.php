@@ -1,162 +1,278 @@
-<?php
-session_start();
-require_once 'cnx.php';
-//require_once 'auth/check_admin.php'; 
-// active si tu veux restreindre l'accès
-$connexion = new Connexion();
-$db = $connexion->getConnexion();
-$utilisateurs = $db->query("SELECT id, nom, prenom, email FROM etudiants ORDER BY nom")->fetchAll(PDO::FETCH_ASSOC);
-?>
-
 <!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Gestion des étudiants</title>
-    <link rel="stylesheet" href="css/etudiant.css">
-    <style>
-        .footer {
-    background-color: #002c84;
-    color: white;
-    text-align: center;
-    padding: 15px 10px;
-    font-size: 14px;
-    border-top: 4px solid #001e5a;
-    margin-top: 133px;
-   
-}
-.footer p {
-    margin: 0;
-}
+<!-- saved from url=(0055)http://localhost/ensaki/projet_ensak/first_page.php#nom -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Required meta tags -->
+    <title> Gestion des Projets  des Étudiants </title>
+    <link rel="shortcut icon" type="image/png" href="http://localhost/ensaki/projet_ensak/logo.png">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="./index_files/style.css">
+    <link rel="stylesheet" type="text/css" href="./index_files/bootstrap.min.css">
+  
+<link rel="stylesheet" href="./index_files/bootstrap(1).min.css">
+<link href="./index_files/bootstrap(2).min.css" rel="stylesheet">
 
-        .hero {
-    background-color:rgb(3, 43, 124);
-    color: white;
-    padding: 60px 20px;
-    text-align: center;
-}
-body, html {
-    margin-top: 40px;
-    padding: 0 ;
+<link rel="stylesheet" href="./index_files/all.min.css"> 
+    <title>Home</title>
+  </head>
+  <body>
    
-}
-.hero h1 {
-    font-size: 36px;
+
+
+
+<!-- Bootstrap CSS -->
+
+
+<style>
+  .nav-link {
+    font-size: 1rem;
     font-weight: bold;
-    margin: 0 0 15px;
-}
+    white-space: nowrap;
+    color: #003366 !important;
+  }
 
-.hero p {
-    font-size: 18px;
-    color: #d0d9e8;
-    margin: 0;
-}
-.btn-list {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 40px;
-}
+  .navbar-toggler {
+    border: none;
+  }
 
-.btn-link {
-    display: inline-block;
-    padding: 15px 30px;
-    background-color:rgb(14, 187, 37);
-    color: white;
-    border-radius: 8px;
-    font-size: 16px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
+  .responsive-title {
+    font-size: 3vw;
+    white-space: nowrap;
+  }
 
-.btn-link:hover {
-    background-color: #0040c1;
-}
-
-
-        .user-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-        .user-table th, .user-table td {
-            padding: 10px;
-            border-bottom: 1px solid #eee;
-            text-align: left;
-        }
-        .user-table th {
-            background-color: #f9f9f9;
-            color: #2c3e50;
-        }
-        .btn-role {
-            background-color: #f39c12;
-            color: white;
-        }
-        .btn-role:hover {
-            background-color: #e67e22;
-        }
-        .btn-delete {
-            background-color: #e74c3c;
-            color: white;
-        }
-        .btn-delete:hover {
-            background-color: #c0392b;
-        }
-    </style>
-</head>
-<body>
-<div class="top-bar">
-    <div class="logo">
-        <img src="image/logo_ensa.png" alt="ENSA Logo">
-    </div>
-    <div class="top-icons">
-        <a href="#" target="_blank"><img src="image/ig-icon.png" alt="Instagram"></a>
-        <a href="#" target="_blank"><img src="image/link-icone.png" alt="Lien utile"></a>
-        <div class="dropdown">
-            <button class="dropbtn">&#9776;</button>
-            <div class="dropdown-content">
-            <a href="index.php">Accueil</a>
-            <a href="dashboard.php">Projets</a>
-            <a href="statistiques.php">Statistiques</a>
-            <a href="gestion_utilisateurs.php">Utilisateurs</a>
-            <a href="logout.php">Déconnexion</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<div class="hero">
-    <h1>Bienvenue dans l'espace administrateur </h1>
-    <p>Suivi, gestion et valorisation des projets étudiants</p>
-</div>
-
-<div class="container">
-    <div class="btn-list">
-        <a href="dashboard.php" class="btn-link">📁 Voir les projets</a>
-        <a href="statistiques.php" class="btn-link">📊 Voir les statistiques</a>
-        <a href="gestion_utilisateurs.php" class="btn-link">👥 Gérer les utilisateurs</a>
-        <a href="logout.php" class="btn-link">🚪 Déconnexion</a>
-    </div>
-</div>
-
-<script>
-document.querySelector(".dropbtn").addEventListener("click", function () {
-    document.querySelector(".dropdown-content").classList.toggle("show");
-});
-window.addEventListener("click", function (e) {
-    if (!e.target.matches('.dropbtn')) {
-        document.querySelectorAll(".dropdown-content").forEach(d => d.classList.remove("show"));
+  @media (min-width: 768px) {
+    .responsive-title {
+      font-size: 2rem;
     }
-});
-</script>
+  }
 
-<footer class="footer">
-    <p>© <?= date("Y") ?> École Nationale des Sciences Appliquées - Kénitra. Tous droits réservés.</p>
-</footer>
+  .header-bar {
+    flex-wrap: nowrap;
+    overflow: hidden;
+  }
+</style>
 
-</body>
+<div class="container-fluid border-bottom py-3 mb-3">
+  <div class="d-flex align-items-center justify-content-between header-bar">
 
-</html>
+    <!-- Logo -->
+    <div class="text-start me-2">
+      <img src="./index_files/logo.png" alt="Logo" class="img-fluid" style="max-height: 60px;">
+    </div>
 
+    <!-- Titre -->
+    <div class="text-center flex-grow-1 mx-2">
+      <h3 class="m-0 responsive-title">Gestion des Projets des Étudiants</h3>
+    </div>
+
+    <!-- Menu + hamburger -->
+    <div class="text-end ms-2">
+      <nav class="navbar navbar-expand-md p-0">
+        <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="menuNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="http://localhost/ensaki/projet_ensak/first_page.php" class="nav-link">Accueil</a>
+            </li>
+            
+            <li class="nav-item">
+              <a href="http://localhost/ensaki/projet_ensak/first_page.php#nom" class="nav-link">Se connecter</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="./index_files/bootstrap.bundle.min.js.téléchargement"></script>
+
+
+
+
+
+
+    <div class="b-example-divider">
+      
+
+        <div class="slider" style="background-color: #f8f9fa; background_size: cover; ">
+          
+         
+
+            <div class="slide">
+              
+       
+              <h1 style="font-size: 450%;">Découvrez notre univers</h1>
+              <h3>L’école des ingénieurs d’excellence !</h3>
+            </div>
+            
+           
+        </div>
+
+      
+          <div class="row justify-content-center grid"> <a name="nom"></a>
+ 
+            <div class="col-sm-3 card cardi" style="width: 320px;">
+
+
+            <div class="row justify-content-center">
+            	<div class="col-sm-3 image">
+                <img src="./index_files/businessman.svg" alt="créer" width="70" height="70">
+              </div>
+
+            <div class="col-sm-7 user_title">
+                <h3>Admin</h3>
+              </div>
+                
+            </div>
+
+              <div class="button_card">
+              <p class="p_style">Espace Administrateur</p>
+            </div>
+              <div class="button"><span><a class="btn btn-primary" href="http://localhost/ensaki/projet_ensak/connect.php">Cliquez ici</a></span></div>
+            
+            </div>
+
+            <div class="col-sm-3 card cardi" style="width: 320px;">
+
+
+              <div class="row justify-content-center">
+                <div class="col-sm-3 image">
+                  <img src="./index_files/teacher.svg" alt="créer" width="70" height="70">
+                </div>
+  
+              <div class="col-sm-7 user_title">
+                  <h3>Enseignant</h3>
+                </div>
+                  
+              </div>
+  
+                <div class="button_card">
+                <p class="p_style">Espace Enseignant</p>
+              </div>
+                <div class="button"><span><a class="btn btn-primary" href="http://localhost/ensaki/projet_ensak/connect_prof.php">Cliquez ici</a></span></div>
+              
+              </div>
+
+
+              <div class="col-sm-3 card cardi" style="width: 320px;">
+
+
+                <div class="row justify-content-center">
+                  <div class="col-sm-3 image">
+                    <img src="./index_files/student.svg" alt="créer" width="70" height="70">
+                  </div>
+    
+                <div class="col-sm-7 user_title">
+                    <h3>Etudiant</h3>
+                  </div>
+                    
+                </div>
+    
+                  <div class="button_card">
+                  <p class="p_style">Espace Etudiant</p>
+                </div>
+                  <div class="button"><span><a class="btn btn-primary " href="http://localhost/ensaki/projet_ensak/connect_etudiant.php">Cliquez ici</a></span></div>
+                
+                </div>
+            
+
+        </div>
+
+
+        <script src="./index_files/bootstrap.bundle.min(1).js.téléchargement" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+        <script src="./index_files/popper.min.js.téléchargement" integrity="sha384-SR1sx49pcuLnqZUnnPwx6FCym0wLsk5JZuNx2bPPENzswTNFaQU1RDvt3wT4gWFG" crossorigin="anonymous"></script>
+     <div class="row justify-content-center grid2">
+      
+      <footer class="mainfooter" role="contentinfo">
+        <div class="container">
+          <div class="row text-start align-items-start">
+            <!-- Colonne 1 -->
+            <div class="col-md-3 col-12 mb-4">
+              <div class="footer-pad">
+                <img src="./index_files/log.png" alt="Logo" width="200px" height="50px" class="mb-2">
+                <p>À l’ENSA, nous formons des ingénieurs d’excellence, prêts à innover et à relever les défis de demain  Une formation accessible, pratique et tournée vers l’avenir .</p>
+              </div>
+            </div>
+      
+            <!-- Séparateur -->
+            <div class="d-none d-md-block col-md-1 vr-line"></div>
+      
+            <!-- Colonne 2 -->
+            <div class="col-md-2 col-12 mb-4">
+              <div class="footer-pad">
+                <h5>INFO</h5>
+                <ul class="list-unstyled  " style="padding-top:10px ;">
+                  <li><a href="https://ensa.uit.ac.ma/">ensa.uit.ac.ma</a></li>
+                  <li><a href="https://dlc.uit.ac.ma/">dlc.uit.ac.ma</a></li>
+                  <li><a href="https://ent.uit.ac.ma/">ent.uit.ac.ma</a></li>
+                </ul>
+              </div>
+            </div>
+      
+            <!-- Séparateur -->
+            <div class="d-none d-md-block col-md-1 vr-line"></div>
+      
+            <!-- Colonne 3 -->
+            <div class="col-md-2 col-12 mb-4">
+              <div class="footer-pad">
+                <h5>Nous contacter</h5>
+                <ul class="list-unstyled" style="padding-top:15px ;">
+                  <li><i class="fas fa-map-marker-alt"></i> Campus universitaire, BP 241, Kénitra – Maroc</li>
+                  <li><i class="fas fa-phone"></i> (+212) 5 37 37 67 65</li>
+                  <li><i class="fas fa-envelope"></i> univ@gmail.com</li>
+                </ul>
+              </div>
+            </div>
+      
+            <!-- Séparateur -->
+            <div class="d-none d-md-block col-md-1 vr-line"></div>
+      
+            <!-- Colonne 4 -->
+           
+            <div class="col-md-2 col-12 mb-4">
+    <div class="footer-pad">
+      <h5 style="padding-bottom: 20px;">Réseaux Sociaux</h5>
+      <ul class="social-network social-circle" style="padding-top:80px;">
+        <li><a href="http://localhost/ensaki/projet_ensak/first_page.php#" class="icoFacebook" title="Facebook"><i class="fab fa-facebook"></i></a></li>
+        <li><a href="http://localhost/ensaki/projet_ensak/first_page.php#" class="icoLinkedin" title="Linkedin"><i class="fab fa-linkedin"></i></a></li>
+        <li><a href="http://localhost/ensaki/projet_ensak/first_page.php#" class="icoYoutube" title="Youtube"><i class="fab fa-youtube"></i></a></li>
+        <li><a href="http://localhost/ensaki/projet_ensak/first_page.php#" class="icoInstagram" title="Instagram"><i class="fab fa-instagram"></i></a></li>
+      </ul>
+    </div>
+  </div>
+
+
+          </div>  
+      
+          <!-- Ligne copyright -->
+          <div class="row">
+            <div class="col-12 text-center mt-">
+              <div class="col-md-12 copy" style="margin-top: 0px margin-bottom:0p;"></div>
+              <p>© École Nationale des Sciences Appliquées © 2025 Université Ibn Tofail. All Rights Reserved.</p>
+            </div>
+          </div>
+          
+
+        </div>
+      </footer>
+
+    </div>
+
+
+
+
+
+
+
+
+    
+     
+   
+  
+
+</div></body></html>

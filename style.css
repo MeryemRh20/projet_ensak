@@ -1,0 +1,339 @@
+
+.grid{
+	background-color:#ebedf3;
+	padding :25px;
+  }
+
+.grid2{
+    background-color: #002C84;
+	padding-left :30px;
+  }
+  
+.slider{
+	background: url('../image/1.png') no-repeat ;
+ background-color: #ffffff; 
+ background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100vh;
+  width: 100%; 
+  opacity: 0.9;
+ 
+  }
+
+
+.slide{
+	text-align: center;
+	position: relative;
+	top: 50%;
+	color: white;
+	line-height: 2px;
+
+
+}
+.col-sm-3.card.cardi{background-color: #ffffff ;color: #f8f5f9;margin-left : 20px;margin-right : 20px; 
+	border:0;-webkit-box-shadow: 0 10px 20px 0 rgb(99 82 82 / 5%);box-shadow: 0 10px 20px 0 #41464b;
+	padding: 20px;
+	margin-bottom:4%;
+  margin-top: 4%;
+  margin-left: 4%;
+}
+.mainfooter {
+    background-color: #002C84;
+    color: white;
+    padding: 40px 0;
+  }
+
+  .footer-pad h4 {
+    margin-bottom: 15px;
+  }
+
+  .footer-pad p, .footer-pad a, .footer-pad li {
+    color: rgb(180, 174, 174);
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .social-network {
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+
+  }
+
+  .social-network li a {
+    background: #fff;
+    color: #00287E;
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 18px;
+        margin-bottom: 10px;
+  }
+
+  .user_title{
+    margin-top: 15px;
+    margin-left: 15px;
+    padding-left: 15px;
+    color: #002C84;
+  }
+  .image {
+    margin-bottom: 15px;
+  }
+  .p_style{
+    color: #111c30;
+  }
+
+  .btn.btn-primary {
+    color: #fff;
+    background-color: #002C84 !important;
+    
+	
+  }
+  footer {
+
+  font-family: 'Open Sans', sans-serif;
+  color: rgb(158, 148, 148);
+  margin-top:50px;
+}
+
+footer a {
+  font-family: 'Open Sans', sans-serif;
+  color: #afa6a6;
+  font-size: 16px;
+  transition-duration: 0.2s;
+}
+
+footer a:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.copy {
+  font-size: 13px;
+  padding: 10px;
+  border-top: 1px solid #FFFFFF;
+}
+
+.footer-middle {
+  padding-top: 2em;
+  color: white;
+}
+
+.list-unstyled {
+  color: rgb(194, 180, 180);
+}
+
+ul.social-network {
+  list-style: none;
+  display: inline;
+  margin-left: 0 !important;
+  padding: 0; ;
+}
+
+ul.social-network li {
+  display: inline;
+  margin: 0 5px;
+}
+
+
+.social-network a.icoFacebook:hover {
+  background-color: #3B5998;
+}
+
+.social-network a.icoLinkedin:hover {
+  background-color: #007bb7;
+}
+
+.social-network a.icoFacebook:hover i,
+.social-network a.icoLinkedin:hover i {
+  color: #fff;
+}
+
+.social-network a.socialIcon:hover,
+.socialHoverClass {
+  color: #44BCDD;
+}
+
+.social-circle li a {
+  display: inline-block;
+  position: relative;
+  margin: 0 auto 0 auto;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  font-size: 15px;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.social-circle li i {
+  margin: 0;
+  line-height: 30px;
+  text-align: center;
+}
+
+.social-circle li a:hover i,
+.triggeredHover {
+  -moz-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  -ms--transform: rotate(360deg);
+  transform: rotate(360deg);
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.social-circle i {
+  color: #595959;
+  -webkit-transition: all 0.8s;
+  -moz-transition: all 0.8s;
+  -o-transition: all 0.8s;
+  -ms-transition: all 0.8s;
+  transition: all 0.8s;
+}
+
+.social-network a {
+  background-color: #F9F9F9;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 300;
+  src: url(https://fonts.gstatic.com/s/opensans/v20/memnYaGs126MiZpBA-UFUKWyV9hmIqOjjg.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+
+  
+
+.container.form {
+    margin-top: 35px;
+    max-width: 2020px;
+}
+.body{
+    zoom: 0.9;
+
+}
+
+
+.card{background-color: #ffffff ;color: #002C84;margin-left : 20px;margin-right : 20px;
+	border:0;-webkit-box-shadow: 0 10px 20px 0 rgb(99 82 82 / 5%);box-shadow: 0 10px 20px 0 #41464b;
+	padding: 20px;
+    border-radius: 9px;
+    
+}
+
+.nav-item {
+    margin-right: 7px;
+   
+}
+
+.d-flex.flex-wrap.justify-content-center.py-3.mb-4 {
+    padding-top: 0rem !important;
+    padding-bottom: 0rem !important;
+}
+
+
+body.form{
+    font-family: var(--bs-font-sans-serif);
+font-size: 0.9rem;
+
+}
+.nvla{
+   
+    color: white;
+    padding: 12px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    padding: 10px 18px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+
+/* Full-width inputs and select */
+input[type=text], input[type=password], select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 0 #002C84;
+    background-color: white; /* pour assurer fond blanc */
+    appearance: none; /* pour enlever la flèche par défaut sur certains navigateurs, optionnel */
+}
+
+/* Set a style for all buttons */
+
+.btn.btn-primary{
+    
+    color: white;
+    padding-left: 10PX;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+
+
+
+/* Center the avatar image inside this container */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    
+}
+
+/* Avatar image */
+img.avatar{
+    width: 40%;
+    border-radius: 50%;
+    
+
+}
+
+/* Add padding to containers */
+.container {
+    padding: 16px;
+    margin-bottom: 25px;
+}
+
+
+/* The "Forgot password" text */
+span.psw {
+    float: right;
+    padding-top: 16px;
+    margin-top: 7px;
+}
+
+.ROW{
+    display: flex;
+    justify-content: center;
+}
+
+
+  
+	
+
+  
+
+
+
+
+
+
+
